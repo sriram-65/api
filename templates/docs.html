@@ -6,48 +6,178 @@
     <title>API Documentation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             padding: 20px;
-            max-width: 800px;
-            background-color: #f4f4f4;
+            color: white;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background-size: cover;
+            background-position: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0;
         }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+
         h1, h2 {
-            color: #333;
+            color: #fff;
+            margin-bottom: 20px;
         }
+
+        h1 {
+            font-size: 2.5rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h2 {
+            font-size: 2rem;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            width: 100%;
+            animation: slideIn 1s ease-in-out;
+        }
+
         .endpoint {
-            background: #eef;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            animation: fadeIn 4s ease-in-out;
         }
+
+        .code-container {
+            background: #2d2d2d;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow-x: auto;
+            text-align: left;
+        }
+
         code {
-            background: #ddd;
-            padding: 2px 5px;
-            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #f8f8f2;
+            line-height: 1.5;
+            display: block;
+        }
+
+        .keyword {
+            color: #ff79c6; /* Pink for keywords */
+        }
+
+        .function {
+            color: #50fa7b; /* Green for functions */
+        }
+
+        .string {
+            color: #f1fa8c; /* Yellow for strings */
+        }
+
+        .comment {
+            color: #6272a4; /* Gray for comments */
+        }
+
+        /* Improved Footer Section */
+        footer {
+         
+            width: 100%;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #fff;
+            animation: fadeIn 5s ease-in-out;
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        footer a {
+            color: #50fa7b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff79c6;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>API Documentation</h1>
-        <p>Welcome to the API documentation. Below are the available endpoints.</p>
         
-      
         
         <div class="endpoint">
             <h2>Endpoints</h2>
-            <p><strong>Method:</strong> <code></code></p>
-            <p><strong>Endpoint:</strong> <code>/api/user/{id}</code></p>
-            <p><strong>Description:</strong> Fetches user details by ID.</p>
+            <p><strong>Basic AI Response:</strong> <code>https://ramapi-ixzr.onrender.com/api/ramAI/chat/content/&lt;prompt&gt;</code></p>
+            <h1>Implementation on JavaScript</h1>
+            <div class="code-container">
+                <code>
+                    <span class="keyword">function</span> <span class="function">getAIResponse</span>(prompt) {<br>
+                    &nbsp;&nbsp;<span class="function">fetch</span>(<span class="string">`https://ramapi-ixzr.onrender.com/api/ramAI/chat/content/${encodeURIComponent(prompt)}`</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">then</span>(response <span class="keyword">=></span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (!response.ok) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">throw</span> <span class="keyword">new</span> <span class="function">Error</span>(<span class="string">"API request failed"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> response.<span class="function">json</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">then</span>(data <span class="keyword">=></span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">console</span>.<span class="function">log</span>(<span class="string">"AI Response:"</span>, data);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">document</span>.<span class="function">getElementById</span>(<span class="string">"response"</span>).<span class="function">innerText</span> = data; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">catch</span>(error <span class="keyword">=></span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">console</span>.<span class="function">error</span>(<span class="string">"Error:"</span>, error);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                    }<br>
+                    <br>
+                    <span class="function">getAIResponse</span>(<span class="string">"Hello, how are you?"</span>);
+                </code>
+            </div>
         </div>
-     
-        
+    </div>
+    
+    
+    <footer>
+        <p>Developed with ❤️ by <a href="#" target="_blank">SRIRAM</a> | &copy; 2008 - 2025</p>
+    </footer>
 </body>
 </html>
