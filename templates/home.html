@@ -3,42 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Welcome to My AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color:white;
+            background:url("https://i.pinimg.com/originals/74/91/81/749181aab5991297b0534bfb7b5cdef8.gif");
+            background-size:cover;
+            background-position:center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color:rgb(255, 255, 255);
+        }
+        h1 span {
+            color: #198754;
+        }
+        .btns {
+            margin-top: 20px;
+        }
+        .btn-custom {
+            width: 250px;
+            padding: 12px;
+            font-size: 1.2rem;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        footer{
+            position: absolute;
+            bottom: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
 </head>
-<style>
-    body{
-        width:100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-x: hidden;
-        flex-direction: column;
-    }
-    .btns{
-        text-align:center;
-        margin:10px;
-    }
-    a{
-        text-decoration:none;
-        color:white;
-    }
-</style>
 <body>
+    
     <h1>
-        Hey , Users Thanks You For <span>Visiting My Website </span>
-      
+        Hey, Users! <br> Thank You for <span>Visiting My Website</span>
     </h1>
+      
+    
 
     <div class="btns">
-        <button class="btn btn-success"> <a href="/use" target="_blank" rel="noopener noreferrer">Use My AI</a></button>
-        <br>
-        <br>
-        <h3>Use My Ai api For Free Without Any Limits and Without using Any Api Key 😏</h3>
-        <br>
-        <button class="btn btn-success"> <a href="/apiDocs" target="_blank" rel="noopener noreferrer">Use My AI API for Free</a></button>
+        <button class="btn btn-success btn-custom mb-3">
+            <a href="/use" target="_blank" rel="noopener noreferrer">Use My AI</a>
+        </button>
+        <h3>Use My AI API for Free, Without Any Limits or API Key! 😏</h3>
+        <button class="btn btn-primary btn-custom mt-3">
+            <a href="/apiDocs" target="_blank" rel="noopener noreferrer">Use My AI API for Free</a>
+        </button>
     </div>
     
+    <footer>Developed By &copf; SRIRAM , 2008 to 2025</footer>
 </body>
 </html>
