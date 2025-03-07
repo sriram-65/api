@@ -148,12 +148,12 @@
         
         <div class="endpoint">
             <h2>Endpoints</h2>
-            <p><strong>Basic AI Response:</strong> <code>https://ramapi-ixzr.onrender.com/api/ramAI/chat/content/&lt;prompt&gt;</code></p>
+            <p><strong>Basic AI Response:</strong> <code>https://sriram-24.vercel.app/api/ramAI/chat/content/&lt;prompt&gt;</code></p>
             <h1>Implementation on JavaScript</h1>
             <div class="code-container">
                 <code>
                     <span class="keyword">function</span> <span class="function">getAIResponse</span>(prompt) {<br>
-                    &nbsp;&nbsp;<span class="function">fetch</span>(<span class="string">`https://ramapi-ixzr.onrender.com/api/ramAI/chat/content/${encodeURIComponent(prompt)}`</span>)<br>
+                    &nbsp;&nbsp;<span class="function">fetch</span>(<span class="string">`https://sriram-24.vercel.app/api/ramAI/chat/content/${encodeURIComponent(prompt)}`</span>)<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">then</span>(response <span class="keyword">=></span> {<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (!response.ok) {<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">throw</span> <span class="keyword">new</span> <span class="function">Error</span>(<span class="string">"API request failed"</span>);<br>
