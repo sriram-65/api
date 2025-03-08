@@ -6,7 +6,98 @@
     <title>RAM.AI Chat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        /* ... (Your existing styles) ... */
+        /* General Styles */
+        body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Navbar Styles */
+        nav {
+            width: 100%;
+            height: 65px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .links a:hover {
+            color: #50fa7b;
+        }
+
+        /* Form Styles */
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            outline: none;
+        }
+
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #50fa7b;
+            color: #000;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: #45d96b;
+        }
 
         /* AI Response Styles */
         h4 {
@@ -42,22 +133,64 @@
             font-size: 0.9rem;
             margin-top: 10px;
         }
+
+        /* Footer Styles */
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            bottom: 0;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        footer a {
+            color: #50fa7b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff79c6;
+        }
+
     </style>
 </head>
 <body>
-    <h4>AI Response Will Appear Here:</h4>
-    <div class="alert alert-primary" role="alert">
-        {% if chat %}
-            {% if chat.startswith('```') and chat.endswith('```') %}
-                <div class="code-block">
-                    {{ chat[3:-3] }} </div>
+    <nav>
+        <div class="logo">
+            <h3>RAM.AI</h3>
+        </div>
+        <div class="links">
+            <a href="/">HOME</a>
+            <a href="/apiDocs">API DOCS</a>
+        </div>
+    </nav>
+    <form action="/chat" method="POST">
+        <input type="text" name="meassage" placeholder="Enter Your Message" class="form-control" required>
+        <button type="submit" class="btn btn-success">Send Chat</button>
+        <h4>AI Response Will Appear Here:</h4>
+        <div class="alert alert-primary" role="alert">
+            {% if chat %}
+                {% if chat.startswith('```') and chat.endswith('```') %}
+                    <div class="code-block">
+                        {{ chat[3:-3] }}
+                    </div>
+                {% else %}
+                    <h5>{{ chat }}</h5>
+                {% endif %}
             {% else %}
-                <h5>{{ chat }}</h5>
+                Hey, Thanks For Using Me 😎
             {% endif %}
-        {% else %}
-            Hey, Thanks For Using Me 😎
-        {% endif %}
-    </div>
+        </div>
 
-    </body>
-</html>
+    </form>
+    <footer>
+        Developed with ❤️ by <a href="#" target="_blank">SRIRAM</a> | &copy; 2008 - 2025
+    </footer>
+</body>
+    </html>
+    
