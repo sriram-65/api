@@ -44,17 +44,18 @@ def chat():
     chat_collection.insert_one(chat_data)
     return render_template("index.html" , chat=str(ai_res.text))
 
-
-
 @app.route("/api/ramAI/chat/<prompt>")
 def api(prompt):
-         res = model.generate_content(prompt)
-         api_data = {
-             "meassage" : prompt,
-             "ai_resp" : res
-         }
-         api_db.insert_one(api_data)
-         return jsonify(res.text)
+    try:
+        res = model.generate_content(prompt)
+        api_data = {
+            "meassage": prompt,
+            "ai_resp": res
+        }
+        api_db.insert_one(api_data)
+        return jsonify(res.text)
+    except Exception as e:
+        return jsonify({"error": str(e)})
 
 
 key = "1324meta"
