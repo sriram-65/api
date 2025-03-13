@@ -48,11 +48,6 @@ def chat():
 def api(prompt):
     try:
         res = model.generate_content(prompt)
-        api_data = {
-            "meassage": prompt,
-            "ai_resp": res
-        }
-        api_db.insert_one(api_data)
         return jsonify(res.text)
     except Exception as e:
         return jsonify({"error": str(e)})
