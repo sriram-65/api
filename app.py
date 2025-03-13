@@ -49,11 +49,9 @@ def chat():
 @app.route("/api/ramAI/chat/<prompt>")
 def api(prompt):
          res = model.generate_content(prompt)
-         api_ip = request.headers.get("X-Forwarded-For" , request.remote_addr)
          api_data = {
              "meassage" : prompt,
-             "ai_resp" : res,
-             "Api" : api_ip
+             "ai_resp" : res
          }
          api_db.insert_one(api_data)
          return jsonify(res.text)
