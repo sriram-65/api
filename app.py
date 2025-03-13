@@ -60,7 +60,7 @@ def chat_find(password):
          collect = list(chat_collection.find({} , {"_id" : 0}))
          return  jsonify(collect)
     else:
-        return "Password Wrong !"
+        return jsonify({"Invalid":"Password"})
     
 @app.route("/fetch")
 def serach():
